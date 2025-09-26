@@ -1,0 +1,411 @@
+/* TriageSystem.css - Responsive styles for tablet and mobile devices */
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Utility Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Line Clamp Utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Transform Scale */
+.hover\:scale-102:hover {
+  transform: scale(1.02);
+}
+
+/* Custom Scrollbar for Tablet */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f7fafc;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f7fafc;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Priority Badge Animations */
+.priority-emergency {
+  animation: pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-duration: 1.5s;
+}
+
+.priority-urgent {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Tablet-Specific Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Optimize grid layout for tablets */
+  .tablet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  /* Adjust modal width for tablets */
+  .tablet-modal {
+    max-width: 90vw;
+    margin: 2rem;
+  }
+  
+  /* Optimize button sizes for touch */
+  .tablet-button {
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 1rem;
+  }
+  
+  /* Increase tap targets */
+  .tablet-tap-target {
+    padding: 0.75rem;
+  }
+  
+  /* Optimize card layout */
+  .tablet-card {
+    padding: 1rem;
+  }
+  
+  /* Statistics grid adjustment */
+  .tablet-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* iPad Pro Specific (1024px - 1366px) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .ipad-pro-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .ipad-pro-modal {
+    max-width: 80vw;
+  }
+}
+
+/* Mobile Responsive (< 768px) */
+@media (max-width: 767px) {
+  /* Stack elements vertically */
+  .mobile-stack {
+    flex-direction: column;
+  }
+  
+  /* Full width buttons */
+  .mobile-full-width {
+    width: 100%;
+  }
+  
+  /* Adjust grid to single column */
+  .mobile-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Optimize modal for mobile */
+  .mobile-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+    margin: 0.5rem;
+  }
+  
+  /* Increase touch targets */
+  .mobile-touch-target {
+    min-height: 48px;
+    padding: 1rem;
+  }
+}
+
+/* Landscape Mode Optimizations */
+@media (orientation: landscape) and (max-height: 768px) {
+  /* Reduce vertical spacing */
+  .landscape-compact {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  /* Horizontal scroll for stats */
+  .landscape-scroll {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Adjust modal height */
+  .landscape-modal {
+    max-height: 90vh;
+  }
+}
+
+/* Touch-Friendly Hover States */
+@media (hover: hover) and (pointer: fine) {
+  /* Apply hover effects only for devices with precise pointers */
+  .hover-effect:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+    transition: all 0.2s ease;
+  }
+}
+
+/* Priority Color System */
+.priority-red-pulse {
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+/* Loading States */
+.skeleton-loading {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  /* Hide interactive elements */
+  .no-print {
+    display: none !important;
+  }
+  
+  /* Optimize for printing */
+  .print-break {
+    page-break-inside: avoid;
+  }
+  
+  /* Black and white priority indicators */
+  .print-priority-emergency {
+    border: 3px solid black;
+  }
+  
+  .print-priority-urgent {
+    border: 2px solid black;
+  }
+  
+  .print-priority-standard {
+    border: 1px solid black;
+  }
+}
+
+/* Accessibility Improvements */
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .high-contrast-border {
+    border: 2px solid currentColor;
+  }
+  
+  .high-contrast-text {
+    font-weight: bold;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .dark-mode-support {
+    background-color: #1a202c;
+    color: #e2e8f0;
+  }
+  
+  .dark-mode-card {
+    background-color: #2d3748;
+    border-color: #4a5568;
+  }
+  
+  .dark-mode-input {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+}
+
+/* Focus Visible for Keyboard Navigation */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Remove focus for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Custom Priority Queue Visualization */
+.queue-container {
+  position: relative;
+  min-height: 400px;
+}
+
+.queue-item-enter {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.queue-item-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.queue-item-exit {
+  opacity: 1;
+}
+
+.queue-item-exit-active {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Notification Badge */
+.notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ef4444;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Table for List View */
+@media (max-width: 768px) {
+  .responsive-table {
+    display: block;
+  }
+  
+  .responsive-table thead {
+    display: none;
+  }
+  
+  .responsive-table tbody,
+  .responsive-table tr,
+  .responsive-table td {
+    display: block;
+  }
+  
+  .responsive-table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+  
+  .responsive-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+  
+  .responsive-table td:before {
+    content: attr(data-label);
+    position: absolute;
+    left: 6px;
+    text-align: left;
+    font-weight: bold;
+  }
+}

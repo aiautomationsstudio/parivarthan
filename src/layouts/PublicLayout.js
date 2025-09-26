@@ -10,21 +10,8 @@ const PublicLayout = () => {
     <div className="min-h-screen flex flex-col bg-gray-50">
       <PublicNavbar />
       
-      {/* Emergency Banner */}
-      <div className="bg-red-600 text-white py-2 px-4">
-        <div className="container mx-auto flex items-center justify-center text-sm">
-          <i className="fas fa-phone-alt mr-2"></i>
-          <span className="font-medium">Crisis Helpline: </span>
-          <a href="tel:1800-599-0019" className="ml-2 underline font-bold">
-            1800-599-0019
-          </a>
-          <span className="mx-2">|</span>
-          <Link to="/emergency" className="underline">
-            Emergency Support
-          </Link>
-        </div>
-      </div>
-
+      {/* Emergency Banner REMOVED - Previously contained Crisis Helpline: 1800-599-0019 */}
+      
       <main className="flex-grow">
         <Outlet />
       </main>
