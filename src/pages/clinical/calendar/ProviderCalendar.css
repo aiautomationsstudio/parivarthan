@@ -1,0 +1,427 @@
+/* ProviderCalendar.css - Custom styles for Provider Calendar Component */
+
+/* Calendar Overrides for React-Calendar */
+.react-calendar {
+  width: 100%;
+  border: none;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.react-calendar__navigation {
+  background-color: #f3f4f6;
+  border-radius: 0.5rem 0.5rem 0 0;
+  margin-bottom: 0.5rem;
+}
+
+.react-calendar__navigation button {
+  color: #374151;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.react-calendar__navigation button:hover {
+  background-color: #e5e7eb;
+}
+
+.react-calendar__navigation button:disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+}
+
+.react-calendar__month-view__weekdays {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.react-calendar__tile {
+  padding: 0.75rem 0.5rem;
+  background: white;
+  position: relative;
+}
+
+.react-calendar__tile:hover {
+  background-color: #eff6ff;
+}
+
+.react-calendar__tile--active {
+  background: #0ea5e9;
+  color: white;
+}
+
+.react-calendar__tile--active:hover {
+  background: #0284c7;
+}
+
+.react-calendar__tile--now {
+  background: #fef3c7;
+  font-weight: bold;
+}
+
+.react-calendar__tile--hasActive {
+  background: #0ea5e9;
+  color: white;
+}
+
+/* Custom Availability Indicators */
+.calendar-tile-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.availability-indicator {
+  display: flex;
+  gap: 0.125rem;
+  margin-top: 0.25rem;
+}
+
+.availability-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+}
+
+.availability-dot--available {
+  background-color: #22c55e;
+}
+
+.availability-dot--booked {
+  background-color: #ef4444;
+}
+
+.availability-dot--partial {
+  background-color: #f59e0b;
+}
+
+/* Time Slot Styles */
+.time-slot {
+  transition: all 0.2s ease-in-out;
+}
+
+.time-slot:hover {
+  transform: translateX(4px);
+}
+
+.time-slot--available {
+  cursor: pointer;
+}
+
+.time-slot--available:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mode Badges */
+.mode-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.mode-badge--online {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+.mode-badge--offline {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.mode-badge--hybrid {
+  background: linear-gradient(90deg, #dbeafe 50%, #f3f4f6 50%);
+  color: #374151;
+}
+
+/* Statistics Cards */
+.stat-card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  animation: fadeIn 0.2s ease-in;
+}
+
+.modal-content {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  border: 3px solid #f3f4f6;
+  border-top: 3px solid #0ea5e9;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Tablet Responsive Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Adjust grid layouts for tablets */
+  .provider-calendar-container {
+    padding: 1rem;
+  }
+
+  /* Statistics grid - 2 columns on tablet */
+  .statistics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* Calendar and schedule view */
+  .calendar-schedule-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .react-calendar {
+    max-width: 100%;
+  }
+
+  /* Buttons and controls */
+  .view-mode-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .view-mode-buttons button {
+    flex: 1;
+    min-width: 80px;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    width: 90%;
+    max-width: 500px;
+    margin: 2rem auto;
+  }
+
+  /* Time slots in day view */
+  .day-view-slots {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+
+  /* Settings panel */
+  .settings-panel-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Week view adjustments */
+  .week-view-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    overflow-x: auto;
+  }
+
+  .week-view-day {
+    min-width: 100px;
+  }
+}
+
+/* Mobile Responsive Styles (below 768px) */
+@media (max-width: 767px) {
+  .provider-calendar-container {
+    padding: 0.5rem;
+  }
+
+  /* Stack everything vertically on mobile */
+  .statistics-grid,
+  .calendar-schedule-grid,
+  .settings-panel-grid,
+  .week-view-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  /* Full width buttons on mobile */
+  .view-mode-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .view-mode-buttons button,
+  .action-buttons button {
+    width: 100%;
+  }
+
+  /* Modal full screen on mobile */
+  .modal-content {
+    width: 95%;
+    margin: 1rem auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Smaller text and padding on mobile */
+  .stat-card {
+    padding: 0.75rem;
+  }
+
+  .stat-card h3 {
+    font-size: 0.875rem;
+  }
+
+  .stat-card .stat-value {
+    font-size: 1.5rem;
+  }
+
+  /* Calendar adjustments */
+  .react-calendar__tile {
+    padding: 0.5rem 0.25rem;
+    font-size: 0.875rem;
+  }
+
+  .react-calendar__navigation button {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  /* Time slots adjustments */
+  .time-slot {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .day-view-slots {
+    max-height: 400px;
+  }
+
+  /* Hide less important elements on mobile */
+  .desktop-only {
+    display: none;
+  }
+
+  /* Compact mode badges */
+  .mode-badge {
+    font-size: 0.625rem;
+    padding: 0.125rem 0.375rem;
+  }
+}
+
+/* Large Screen Styles (above 1024px) */
+@media (min-width: 1025px) {
+  .provider-calendar-container {
+    padding: 1.5rem;
+  }
+
+  .statistics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .calendar-schedule-grid {
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+  }
+
+  .week-view-grid {
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Accessibility Improvements */
+.focus-visible:focus {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+button:focus-visible {
+  outline: 2px solid #0ea5e9;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .mode-badge--online {
+    border: 2px solid #1e40af;
+  }
+
+  .mode-badge--offline {
+    border: 2px solid #374151;
+  }
+
+  .time-slot {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  .provider-calendar-container {
+    padding: 0;
+  }
+
+  .modal-overlay,
+  .action-buttons,
+  .view-mode-buttons {
+    display: none;
+  }
+
+  .calendar-schedule-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card {
+    box-shadow: none;
+    border: 1px solid #e5e7eb;
+  }
+}
